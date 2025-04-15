@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blockbuster Video!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner:wght@400..700&family=Lexend+Exa:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <h1>Blockbuster Video!</h1>
+    <video id="myVideo" poster="images/poster.png" controls loop muted autoplay playsinline>
+        <source src="videos/newyear-firework.webm" type="video/webm">
+        <source src="videos/newyear-firework.mp4" type="video/mp4">
+        <p>Your browser doesn't support HTML5 video. Here is a <a href="videos/newyear-firework.mp4">link to the video</a> instead.</p>
+    </video>
+    <!-- <i class="fas fa-expand-alt"></i> -->
+
+    <div id="loading-msg">
+        <p>Loading fireworks...</p>
+    </div>
+
+    <section id="overlaySection">
+        <p id="overlayText" class="hidden">Brief as lightning in the collied night…</p>
+    </section>
+</body>
+</html>
