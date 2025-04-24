@@ -4,10 +4,15 @@
     box-sizing: border-box;
 }
 
+ul {
+    list-style: none;
+}
+
 body {
     width: 1200px;
     height: 750px;
     margin: auto;
+    font-family: "Shantell Sans", cursive;
 }
 
 h1 {
@@ -27,4 +32,47 @@ img {
     max-width: 1200px;
     height: auto;
     margin: auto;
+}
+
+#xy-axis {
+    position: relative;
+}
+
+#x-axis {
+    position: absolute;
+    left: 20%;
+    bottom: 2%;
+}
+
+#x-axis ul {
+    display: flex;
+    gap: 9.5%;
+}
+
+#x-axis-title {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 20px;
+}
+
+#y-axis {
+    position: absolute;
+    top: 14%;
+    left: 10%;
+
+}
+
+#y-axis ul {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 70px;
+}
+
+#y-axis-title {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    width: 3em;
+    text-align: center;
 }
