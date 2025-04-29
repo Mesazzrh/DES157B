@@ -1,56 +1,56 @@
 [
-    {
-       "time":"2:00",
-       "mood-score":5,
-       "mood":"Happy",
-       "reason":"Had a geate lunch"
-    },
-    {
-       "time":"2:15",
-       "mood-score":3,
-       "mood":"Neutral",
-       "reason":"Checking emails"
-    },
-    {
-       "time":"2:30",
-       "mood-score":2,
-       "mood":"Stressed",
-       "reason":"Checking today's TODO List"
-    },
-    {
-       "time":"2:45",
-       "mood-score":3,
-       "mood":"Focused",
-       "reason":"Coding JavaScript"
-    },
-    {
-       "time":"3:00",
-       "mood-score":2,
-       "mood":"Tired",
-       "reason":"Still coding JavaScript"
-    },
-    {
-       "time":"3:15",
-       "mood-score":3,
-       "mood":"Bored",
-       "reason":"Been coding for a while"
-    },
-    {
-       "time":"3:30",
-       "mood-score":4,
-       "mood":"Calm",
-       "reason":"Listening to music"
-    },
-    {
-       "time":"3:45",
-       "mood-score":3,
-       "mood":"Focused",
-       "reason":"Going back to coding"
-    },
-    {
-       "time":"4:00",
-       "mood-score":5,
-       "mood":"Happy",
-       "reason":"Completed one of my TODO for the day"
-    }
+   {
+      "time":"2:00",
+      "mood-score":5,
+      "mood":"Happy",
+      "reason":"Had a great lunch"
+   },
+   {
+      "time":"2:15",
+      "mood-score":3,
+      "mood":"Neutral",
+      "reason":"Checking emails"
+   },
+   {
+      "time":"2:30",
+      "mood-score":2,
+      "mood":"Stressed",
+      "reason":"Checking today's TODO List"
+   },
+   {
+      "time":"2:45",
+      "mood-score":3,
+      "mood":"Focused",
+      "reason":"Coding JavaScript"
+   },
+   {
+      "time":"3:00",
+      "mood-score":2,
+      "mood":"Tired",
+      "reason":"Still coding JavaScript"
+   },
+   {
+      "time":"3:15",
+      "mood-score":3,
+      "mood":"Bored",
+      "reason":"Been coding for a while"
+   },
+   {
+      "time":"3:30",
+      "mood-score":4,
+      "mood":"Calm",
+      "reason":"Listening to music"
+   },
+   {
+      "time":"3:45",
+      "mood-score":3,
+      "mood":"Focused",
+      "reason":"Going back to coding"
+   },
+   {
+      "time":"4:00",
+      "mood-score":5,
+      "mood":"Happy",
+      "reason":"Completed one of my TODO for the day"
+   }
 ]
