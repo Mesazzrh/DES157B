@@ -4,16 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library Liberty</title>
+    <link rel="stylesheet" href="hover-min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="styles.css">
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
     <script src="script.js" defer></script>
 </head>
 <body>
     <h1>Quote Generator</h1>
     <div class="grid-container" id="grid"></div>
-    <section id="quote-container">
+    <section id="quote-container" class="animate__animated animate__backInUp">
         <span id="quote"></span>
     </section>
-    <button></button>
+
+    <div id="quotes" style="display:none;">
+        <span>“Be yourself; everyone else is already taken.” — Oscar Wilde</span>
+        <span>“Two things are infinite: the universe and human stupidity; and I'm not sure about the universe.” — Albert Einstein</span>
+        <span>“So many books, so little time.” — Frank Zappa</span>
+        <span>“A room without books is like a body without a soul.” — Marcus Tullius Cicero</span>
+        <span>“In three words I can sum up everything I've learned about life: it goes on.” — Robert Frost</span>
+    </div>
+
+    <button class="hvr-radial-out" id="btn">Generate the quote of the day!</button>
+
+    <footer class="box">
+        <p>Libraries Used:</p>
+        <ul>
+            <li><a href="https://mattboldt.com/demos/typed-js/">Typed.js</a></li>
+            <li><a href="https://ianlunn.github.io/Hover/">Hover.css</a></li>
+            <li><a href="https://animate.style/">Animate.css</a></li>
+        </ul>
+    </footer>
 </body>
 </html>

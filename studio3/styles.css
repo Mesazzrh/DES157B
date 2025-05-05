@@ -1,7 +1,13 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     margin: 0;
     height: 100vh;
-    overflow: hidden; /* Prevent scrollbars */
+    overflow: hidden;
     background: #f0f0f0;
     display: flex;
     justify-content: center;
@@ -21,12 +27,13 @@ body {
 
 .grid-cell {
     background: #fff;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: all 0.2s ease;
 }
 
 .grid-cell:hover {
     transform: scale(1.2);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    background: rgb(237, 237, 237);
 }
 
 h1 {
@@ -35,4 +42,75 @@ h1 {
     left: 50%;
     transform: translate(-50%);
     z-index: 1;
+}
+
+#quote-container {
+    width: 50%;
+    height: 150px;
+    background: rgb(255, 255, 255);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    position: absolute;
+    top: 30%;
+    left: 25%;
+    transform: translate(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+
+#quote {
+    width: 100%;
+    font-size: 1.3em;
+    font-family: 'Georgia', serif;
+    text-align: center;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+#btn {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%);
+    font-size: 1.3em;
+    padding: 10px;
+    width: 50%;
+    max-width: 400px;
+    background: white;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.hvr-radial-out::before {
+    background: rgba(1, 90, 255, 0.5);
+}
+
+footer {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translate(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
