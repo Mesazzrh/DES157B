@@ -1,0 +1,262 @@
+/* ========== Reset & Base Styles ========== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    overflow: hidden;
+}
+
+/* ========== Headings ========== */
+h1 {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 2.5em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    z-index: 1;
+}
+
+.hidden {
+    display: none;
+}
+
+/* ========== Welcome Screen ========== */
+#welcome-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: black;
+    width: 100vw;
+    height: 100vh;
+}
+
+#welcome-screen h2 {
+    position: absolute;
+    top: 25vh;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 3em;
+    text-align: center;
+}
+
+#welcome-screen span {
+    color: rgb(221, 122, 77);
+}
+
+#welcome-screen button {
+    position: absolute;
+    top: 50vh;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.5em 1em;
+    font-size: 1.5em;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    background-color: #d96161;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 0px 10px rgba(255, 255, 255, 0.5);
+}
+
+#welcome-screen button:hover {
+    background-color: #dd3737;
+    transform: translateX(-50%) scale(1.05);
+}
+
+/* ========== Intro Screen ========== */
+#intro-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: black;
+    width: 100vw;
+    height: 100vh;
+}
+
+#intro-screen h2 {
+    position: absolute;
+    top: 30vh;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 2em;
+    text-align: center;
+}
+
+/* ========== Main Screen ========== */
+#main-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url(images/desk-main-screen.png);
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* ========== Icon Styles ========== */
+.icon {
+    transition: all 0.3s ease;
+    filter: drop-shadow(10px 10px 0px rgba(0, 0, 0, 0.5));
+}
+
+/* Positioning for each icon */
+#calendar {
+    position: absolute;
+    left: 2vw;
+    top: 10vh;
+    width: 30vw;
+}
+
+#digit-clock {
+    position: absolute;
+    left: 43vw;
+    top: 15vh;
+    width: 15vw;
+}
+
+#phone {
+    position: absolute;
+    left: 10vw;
+    top: 60vh;
+    width: 10vw;
+}
+
+#notebook {
+    position: absolute;
+    left: 35vw;
+    top: 35vh;
+    width: 30vw;
+}
+
+#postit {
+    position: absolute;
+    left: 70vw;
+    top: 10vh;
+    width: 25vw;
+}
+
+#cup {
+    position: absolute;
+    left: 70vw;
+    top: 50vh;
+    width: 12vw;
+}
+
+/* Clickable icon hover effect */
+.clickable-icon:hover {
+    cursor: pointer;
+    filter: drop-shadow(0 0 10px white);
+    transform: scale(1.02);
+}
+
+/* ========== Direction Tip ========== */
+#direction-tip {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, 50%);
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.5em;
+    text-align: center;
+    z-index: 1;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.7));
+    border-radius: 5px;
+}
+
+#direction-tip-text {
+    animation: fadeInOut 2s infinite;
+}
+
+/* Fade in/out animation for direction tip */
+@keyframes fadeInOut {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+}
+/* 
+#direction-tip.fading {
+    animation: fadeInOut 2s infinite;
+} */
+
+/* ========== User Test Overlay ========== */
+#user-test-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(0,0,0,0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+#user-test-overlay .overlay-content {
+    background: #222;
+    color: #fff;
+    padding: 2em 2.5em;
+    border-radius: 12px;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.5);
+    text-align: left;
+    max-width: 90vw;
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#user-test-overlay button {
+    margin-top: 1.5em;
+    padding: 0.5em 2em;
+    font-size: 1.1em;
+    background: #d96161;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    align-self: center;
+}
+
+#user-test-overlay button:hover {
+    background: #dd3737;
+}
+
+/* ========== Prompt Box ========= */
+#prompt-box {
+    width: 80vw;
+    height: 20vh;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.69);
+    box-shadow: 0px 0px 20px 7px rgba(0, 0, 0, 0.50);
+    backdrop-filter: blur(8.300000190734863px);
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.prompt-content {
+    display: none;
+}
+
+.prompt-content p {
+    font-size: 1.5em;
+    color: black;
+    font-weight: 600;
+    padding: 2em;
+}
