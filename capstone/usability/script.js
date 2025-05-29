@@ -16,7 +16,8 @@ startBtn.addEventListener('click', function(){
 
         directionTip.style.display = 'block';
         directionTip.textContent = 'Hover over the items to start interacting with them.';directionTip.classList.add('fading');
-    }, 1000); //1 second for now for me to get to the main screen faster
+    }, 8000); //8 seconds
+    //1 second for now for me to get to the main screen faster
 });
 
 function showPromptContent(contentId, typedOptions) {
