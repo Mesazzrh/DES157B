@@ -19,6 +19,46 @@ startBtn.addEventListener('click', function(){
     //1 second for now for me to get to the main screen faster
 });
 
+let typedInstance = null;
+
+function showPromptContent(contentId, typedOptions) {
+    // Hide all prompt-content divs
+    for (const div of document.querySelectorAll('.prompt-content')) {
+        div.style.display = 'none';
+        const p = div.querySelector('p');
+        if (p) p.textContent = '';
+    };
+
+    const contentDiv = document.querySelector(contentId);
+    if (contentDiv) {
+        contentDiv.style.display = 'flex';
+        const p = contentDiv.querySelector('p');
+        if (p) {
+            if (typedInstance) {
+                typedInstance.destroy();
+            }
+            typedInstance = new Typed(`#${p.id}`, typedOptions);
+        }
+    }
+    // Show the prompt box
+    promptBox.style.display = 'block';
+}
+
+function showOptions() {
+    const option1 = document.querySelector('#option1');
+    const option2 = document.querySelector('#option2');
+
+    option1.style.display = 'block';
+    option2.style.display = 'block';
+
+    option1.addEventListener('click', function() {
+        
+    });
+    option2.addEventListener('click', function() {
+
+    });
+}
+
 for (const item of interactiveItems) {
     item.addEventListener('click', function () {
         // Hide direction tip
@@ -40,6 +80,9 @@ for (const item of interactiveItems) {
                 typeSpeed: 10,
                 showCursor: false
             })
+            setTimeout(function(){
+
+            }, 5000)
         } else if (item.id === 'calendar') {
             showPromptContent('#calendar-contents', {
                 strings: ["Still under construction!"],
@@ -65,31 +108,6 @@ for (const item of interactiveItems) {
 document.querySelector('#close-overlay-btn').addEventListener('click', function() {
     document.querySelector('#user-test-overlay').style.display = 'none';
 });
-
-let typedInstance = null;
-
-function showPromptContent(contentId, typedOptions) {
-    // Hide all prompt-content divs
-    for (const div of document.querySelectorAll('.prompt-content')) {
-        div.style.display = 'none';
-        const p = div.querySelector('p');
-        if (p) p.textContent = '';
-    };
-
-    const contentDiv = document.querySelector(contentId);
-    if (contentDiv) {
-        contentDiv.style.display = 'block';
-        const p = contentDiv.querySelector('p');
-        if (p) {
-            if (typedInstance) {
-                typedInstance.destroy();
-            }
-            typedInstance = new Typed(`#${p.id}`, typedOptions);
-        }
-    }
-    // Show the prompt box
-    promptBox.style.display = 'block';
-}
 
 function closePromptBox(){
     // document.addEventListener('click', function(e) {
