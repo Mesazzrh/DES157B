@@ -21,18 +21,21 @@ startBtn.addEventListener('click', function(){
 
 let typedInstance = null;
 
+// Function to show prompt content (the short intro) with typing effect
 function showPromptContent(contentId, typedOptions) {
     // Hide all prompt-content divs
     for (const div of document.querySelectorAll('.prompt-content')) {
         div.style.display = 'none';
-        const p = div.querySelector('p');
+        for (const p of document.querySelectorAll('.short-intro')) {
+            
+        }
         if (p) p.textContent = '';
     };
 
     const contentDiv = document.querySelector(contentId);
     if (contentDiv) {
         contentDiv.style.display = 'flex';
-        const p = contentDiv.querySelector('p');
+        const p = contentDiv.querySelector('.short-intro');
         if (p) {
             if (typedInstance) {
                 typedInstance.destroy();
@@ -44,12 +47,26 @@ function showPromptContent(contentId, typedOptions) {
     promptBox.style.display = 'block';
 }
 
-function showOptions() {
-    const option1 = document.querySelector('#option1');
-    const option2 = document.querySelector('#option2');
+// Function to hide prompt content and reset the text
+function hidePromptContent(contentId) {
+    const contentDiv = document.querySelector(contentId);
+    const p = contentDiv.querySelector('.short-intro');
+    if (p) p.textContent = '';
+    
+    if (typedInstance) {
+        typedInstance.destroy();
+        typedInstance = null;
+    }
+}
 
-    option1.style.display = 'block';
-    option2.style.display = 'block';
+// Function to show options after the short intro
+function showOptions(contentId) {
+    const contentDiv = document.querySelector(contentId);
+    const optionsPrompt = document.querySelector('.options');
+    const option1 = contentDiv.querySelector('.option1');
+    const option2 = document.querySelector('.option2');
+
+    optionsPrompt.style.display = 'block';
 
     option1.addEventListener('click', function() {
         
@@ -81,7 +98,8 @@ for (const item of interactiveItems) {
                 showCursor: false
             })
             setTimeout(function(){
-
+                hidePromptContent('#notebook-contents');
+                showOptions('#notebook-contents');
             }, 5000)
         } else if (item.id === 'calendar') {
             showPromptContent('#calendar-contents', {
@@ -105,6 +123,7 @@ for (const item of interactiveItems) {
     });
 }
 
+// Close prompt box when pressing Escape
 document.querySelector('#close-overlay-btn').addEventListener('click', function() {
     document.querySelector('#user-test-overlay').style.display = 'none';
 });
@@ -147,3 +166,18 @@ function closePromptBox(){
 };
 
 closePromptBox();
+
+// Prompt box close button functionality
+document.querySelector('#prompt-close-btn').addEventListener('click', function() {
+    promptBox.style.display = 'none';
+    if (typedInstance) {
+        typedInstance.destroy();
+        typedInstance = null;
+    }
+    for (let i = 0; i < interactiveItems.length; i++) {
+        interactiveItems[i].style.filter = 'drop-shadow(10px 10px 0px rgba(0, 0, 0, 0.5))';
+    }
+    directionTip.style.display = 'block';
+    directionTip.style.opacity = 1;
+    directionTip.style.animation = '';
+});
