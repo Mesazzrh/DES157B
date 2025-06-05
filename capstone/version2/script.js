@@ -15,32 +15,56 @@ startBtn.addEventListener('click', function(){
         document.querySelector('h1').style.display = 'block';
 
         directionTip.style.display = 'block';
-    }, 1000); //8 seconds
+    }, 8000); //8 seconds
     //1 second for now for me to get to the main screen faster
 });
 
 let typedInstance = null;
+let optionsTimeoutId = null;
 
 // Function to show prompt content (the short intro) with typing effect
 function showPromptContent(contentId, typedOptions) {
-    // Hide all prompt-content divs
+    // Hide all prompt contents (including short intros, options)
+
+    if (optionsTimeoutId) {
+        clearTimeout(optionsTimeoutId);
+        optionsTimeoutId = null;
+    }
+
     for (const div of document.querySelectorAll('.prompt-content')) {
         div.style.display = 'none';
-        for (const p of document.querySelectorAll('.short-intro')) {
-            
+    }
+    
+    // Hide all short-intro paragraphs
+    for (const shortIntroP of document.querySelectorAll('.short-intro')) {
+        if (shortIntroP){
+            shortIntroP.textContent = '';
         }
-        if (p) p.textContent = '';
-    };
+    }
+
+    // Hide all options containers
+    for (const optionsContainer of document.querySelectorAll('.options')) {
+        if (optionsContainer) {
+            optionsContainer.style.display = 'none';
+        }
+    }
+
+    // Hide all content bubbles
+    for (const contentBubble of document.querySelectorAll('.content-bubble')) {
+        if (contentBubble) {
+            contentBubble.style.display = 'none';
+        }
+    }
 
     const contentDiv = document.querySelector(contentId);
     if (contentDiv) {
         contentDiv.style.display = 'flex';
-        const p = contentDiv.querySelector('.short-intro');
-        if (p) {
+        const shortIntroP = contentDiv.querySelector('.short-intro');
+        if (shortIntroP) {
             if (typedInstance) {
                 typedInstance.destroy();
             }
-            typedInstance = new Typed(`#${p.id}`, typedOptions);
+            typedInstance = new Typed(`#${shortIntroP.id}`, typedOptions);
         }
     }
     // Show the prompt box
@@ -50,26 +74,35 @@ function showPromptContent(contentId, typedOptions) {
 // Function to hide prompt content and reset the text
 function hidePromptContent(contentId) {
     const contentDiv = document.querySelector(contentId);
-    const p = contentDiv.querySelector('.short-intro');
-    if (p) p.textContent = '';
+    const shortIntroP = contentDiv.querySelector('.short-intro');
+    if (shortIntroP) {
+        shortIntroP.textContent = ''
+    };
     
     if (typedInstance) {
         typedInstance.destroy();
         typedInstance = null;
+    }
+    if (optionsTimeoutId) {
+        clearTimeout(optionsTimeoutId);
+        optionsTimeoutId = null;
     }
 }
 
 // Function to show options after the short intro
 function showOptions(contentId) {
     const contentDiv = document.querySelector(contentId);
-    const optionsPrompt = document.querySelector('.options');
+    const optionsContainer = contentDiv.querySelector('.options');
+    if (optionsContainer) {
+        optionsContainer.style.display = 'flex';
+    }
+    
     const option1 = contentDiv.querySelector('.option1');
-    const option2 = document.querySelector('.option2');
-
-    optionsPrompt.style.display = 'block';
+    const option2 = contentDiv.querySelector('.option2');
+    const contentBubble = contentDiv.querySelector('.content-bubble');
 
     option1.addEventListener('click', function() {
-        
+        contentBubble.style.display = 'block';
     });
     option2.addEventListener('click', function() {
 
@@ -97,10 +130,11 @@ for (const item of interactiveItems) {
                 typeSpeed: 10,
                 showCursor: false
             })
-            setTimeout(function(){
+            optionsTimeoutId = setTimeout(function(){
                 hidePromptContent('#notebook-contents');
                 showOptions('#notebook-contents');
             }, 5000)
+            
         } else if (item.id === 'calendar') {
             showPromptContent('#calendar-contents', {
                 strings: ["Still under construction!"],
@@ -124,9 +158,9 @@ for (const item of interactiveItems) {
 }
 
 // Close prompt box when pressing Escape
-document.querySelector('#close-overlay-btn').addEventListener('click', function() {
-    document.querySelector('#user-test-overlay').style.display = 'none';
-});
+// document.querySelector('#close-overlay-btn').addEventListener('click', function() {
+//     document.querySelector('#user-test-overlay').style.display = 'none';
+// });
 
 function closePromptBox(){
     // document.addEventListener('click', function(e) {
@@ -153,6 +187,10 @@ function closePromptBox(){
             if (typedInstance) {
                 typedInstance.destroy();
                 typedInstance = null;
+            }
+            if (optionsTimeoutId) {
+                clearTimeout(optionsTimeoutId);
+                optionsTimeoutId = null;
             }
             for (let i = 0; i < interactiveItems.length; i++) {
                 interactiveItems[i].style.filter = 'drop-shadow(10px 10px 0px rgba(0, 0, 0, 0.5))';
