@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capstone Project</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js" defer></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <h1 class="hidden">My Desk</h1>
+
+    <p id="direction-tip" class="hidden"><span id="direction-tip-text">Hover over the items to start interacting with them.</span></p>
+
+    <section id="welcome-screen">
+        <h2>WELCOME TO THE INTERSECTION BETWEEN <span>HUMAN DESIGNERS</span> AND <span>AI</span></h2>
+        <button>START</button>
+    </section>
+
+    <section id="intro-screen" class="hidden">
+        <h2>This is an interactive narrative game, specifically a branching choice-based game. Core of the game is storytelling, where users experience a narrative that changes based on their choices.</h2>
+    </section>
+
+    <section id="main-screen" class="hidden">
+        <img src="images/calendar.svg" alt="Calendar" class="clickable-icon icon" id="calendar">
+        <img src="images/notebook.svg" alt="Notebook" class="clickable-icon icon" id="notebook">
+        <img src="images/cup.svg" alt="Water Cup" class="icon" id="cup">
+        <img src="images/digit-clock.svg" alt="Digital Clock" class="icon" id="digit-clock">
+        <img src="images/phone.svg" alt="Mobile Phone" class="clickable-icon icon" id="phone">
+        <img src="images/postit.svg" alt="Post it Note" class="clickable-icon icon" id="postit">
+    </section>
+
+    <!-- <div id="user-test-overlay">
+        <div class="overlay-content">
+            <h2>Welcome, Tester!</h2>
+            <p>Thank you for helping test this interactive narrative game. Please try to:</p>
+            <ol>
+                <li>Start the game and explore the main screen.</li>
+                <li>Interact with at least two clickable items on the desk.</li>
+                <li>Share any feedback about the clarity of instructions and overall experience.</li>
+            </ol>
+            <button id="close-overlay-btn">Got it!</button>
+        </div>
+    </div> -->
+
+
+    <div class="content-bubble-and-contents">
+        <div class="content-bubble hidden"></div>
+    </div>
+    
+    <div id="prompt-box" class="hidden">
+        <div id="prompt-close-btn">&times;</div>
+        <div class="prompt-content" id="notebook-contents">
+            <p class="short-intro" id="notebook-prompt-content"></p>
+            <div class="options hidden">
+                <p class="option1">Sketch it all out by hand — it’s slower, but your thoughts feel more personal and focused.</p>
+                <p class="or">OR</p>
+                <p class="option2">Let the AI summarize and organize your notes into wireframes — it’s faster and more efficient.</p>
+            </div>
+                
+            <div class="futures">
+                <div class="utopia hidden" id="notebook-utopia">
+                    <p>You build a habit of reflective, personal design exploration.</p>
+                    <img src="images/nb-future1.png" alt="Utopia future drawing">
+                </div>
+                <div class="dystopia hidden" id="notebook-dystopia">
+                    <p>You begin to lose touch with your creative instincts. Your work feels fast, but generic and forgettable.</p>
+                    <img src="images/nb-future2.png" alt="Dystopia future drawing">
+                </div>
+            </div>
+        </div>
+
+        <div class="prompt-content" id="calendar-contents">
+            <p class="short-intro" id="calendar-prompt-content"></p>
+            <div class="options hidden">
+                <p class="option1"></p>
+                <p class="or">OR</p>
+                <p class="option2"></p>
+            </div>
+        </div>
+
+        <div class="prompt-content" id="postit-contents">
+            <p class="short-intro" id="postit-prompt-content"></p>
+            <div class="options hidden">
+                <p class="option1"></p>
+                <p class="or">OR</p>
+                <p class="option2"></p>
+            </div>
+        </div>
+
+        <div class="prompt-content" id="phone-contents">
+            <p class="short-intro" id="phone-prompt-content"></p>
+            <div class="options hidden">
+                <p class="option1"></p>
+                <p class="or">OR</p>
+                <p class="option2"></p>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>
