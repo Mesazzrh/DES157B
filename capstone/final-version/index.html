@@ -10,19 +10,26 @@
     <script src="script.js" defer></script>
 </head>
 <body>
+    <!-- Main Title -->
     <h1 class="hidden">My Desk</h1>
 
-    <p id="direction-tip" class="hidden"><span id="direction-tip-text">Hover over the items to start interacting with them.</span></p>
+    <!-- Direction Tip -->
+    <p id="direction-tip" class="hidden">
+        <span id="direction-tip-text">Hover over the items to start interacting with them.</span>
+    </p>
 
+    <!-- Welcome Screen -->
     <section id="welcome-screen">
         <h2>WELCOME TO THE INTERSECTION BETWEEN <span>HUMAN DESIGNERS</span> AND <span>AI</span></h2>
         <button>START</button>
     </section>
 
+    <!-- Intro Screen -->
     <section id="intro-screen" class="hidden">
         <h2>This is an interactive narrative game, specifically a branching choice-based game. Core of the game is storytelling, where users experience a narrative that changes based on their choices.</h2>
     </section>
 
+    <!-- Main Screen -->
     <section id="main-screen" class="hidden">
         <img src="images/calendar.svg" alt="Calendar" class="clickable-icon icon" id="calendar">
         <img src="images/notebook.svg" alt="Notebook" class="clickable-icon icon" id="notebook">
@@ -32,35 +39,11 @@
         <img src="images/postit.svg" alt="Post it Note" class="clickable-icon icon" id="postit">
     </section>
 
-    <!-- <div id="user-test-overlay">
-        <div class="overlay-content">
-            <h2>Welcome, Tester!</h2>
-            <p>Thank you for helping test this interactive narrative game. Please try to:</p>
-            <ol>
-                <li>Start the game and explore the main screen.</li>
-                <li>Interact with at least two clickable items on the desk.</li>
-                <li>Share any feedback about the clarity of instructions and overall experience.</li>
-            </ol>
-            <button id="close-overlay-btn">Got it!</button>
-        </div>
-    </div> -->
-
-
+    <!-- Content Bubble and Futures -->
     <div class="content-bubble-and-contents">
-        <div class="content-bubble hidden"></div>
-    </div>
-    
-    <div id="prompt-box" class="hidden">
-        <div id="prompt-close-btn">&times;</div>
-        <div class="prompt-content" id="notebook-contents">
-            <p class="short-intro" id="notebook-prompt-content"></p>
-            <div class="options hidden">
-                <p class="option1">Sketch it all out by hand — it’s slower, but your thoughts feel more personal and focused.</p>
-                <p class="or">OR</p>
-                <p class="option2">Let the AI summarize and organize your notes into wireframes — it’s faster and more efficient.</p>
-            </div>
-                
+        <div class="content-bubble hidden">
             <div class="futures">
+                <!-- Notebook Futures -->
                 <div class="utopia hidden" id="notebook-utopia">
                     <p>You build a habit of reflective, personal design exploration.</p>
                     <img src="images/nb-future1.png" alt="Utopia future drawing">
@@ -69,37 +52,89 @@
                     <p>You begin to lose touch with your creative instincts. Your work feels fast, but generic and forgettable.</p>
                     <img src="images/nb-future2.png" alt="Dystopia future drawing">
                 </div>
-            </div>
-        </div>
+    
+                <!-- Calendar Futures -->
+                <div class="utopia hidden" id="calendar-utopia">
+                    <p>You are clear about what will happen next since you wrote it down. You are ready to take the next step.</p>
+                    <img src="images/cal-future1.png" alt="Utopia future drawing">
+                </div>
+                <div class="dystopia hidden" id="calendar-dystopia">
+                    <p>You don't have to spend time thinking about what and where to plan, AI will do it for you. </p>
+                    <img src="images/cal-future2.png" alt="Dystopia future drawing">
+                </div>
 
-        <div class="prompt-content" id="calendar-contents">
-            <p class="short-intro" id="calendar-prompt-content"></p>
-            <div class="options hidden">
-                <p class="option1"></p>
-                <p class="or">OR</p>
-                <p class="option2"></p>
-            </div>
-        </div>
+                <!-- Phone Futures -->
+                <div class="utopia hidden" id="phone-utopia">
+                    <p>The client is impressed by your insight. The project feels more collaborative and intentional.</p>
+                    <img src="images/phone-future1.png" alt="Utopia future drawing">
+                </div>
+                <div class="dystopia hidden" id="phone-dystopia">
+                    <p>You win quick projects, but clients stop treating you like a creative partner. You're a service, not a voice.</p>
+                    <img src="images/phone-future2.png" alt="Dystopia future drawing">
+                </div>
 
-        <div class="prompt-content" id="postit-contents">
-            <p class="short-intro" id="postit-prompt-content"></p>
-            <div class="options hidden">
-                <p class="option1"></p>
-                <p class="or">OR</p>
-                <p class="option2"></p>
-            </div>
-        </div>
-
-        <div class="prompt-content" id="phone-contents">
-            <p class="short-intro" id="phone-prompt-content"></p>
-            <div class="options hidden">
-                <p class="option1"></p>
-                <p class="or">OR</p>
-                <p class="option2"></p>
+                <!-- Postit Futures -->
+                <div class="utopia hidden" id="postit-utopia">
+                    <p>Your goals evolve, rooted in your curiosity. They lead you down unexpected but fulfilling paths.</p>
+                    <img src="images/postit-future1.png" alt="Utopia future drawing">
+                </div>
+                <div class="dystopia hidden" id="postit-dystopia">
+                    <p>Your career follows a smooth, profitable curve. But each milestone feels more like someone else's win.</p>
+                    <img src="images/postit-future2.png" alt="Dystopia future drawing">
+                </div>
             </div>
         </div>
     </div>
+    
+    <!-- Prompt Box -->
+    <div id="prompt-box" class="hidden">
+        <div id="prompt-close-btn">&times;</div>
+        
+        <!-- Notebook Prompt -->
+        <div class="prompt-content" id="notebook-contents">
+            <p class="short-intro" id="notebook-prompt-content"></p>
+            <div class="options hidden">
+                <p class="option1">Sketch it all out by hand — it's slower, but your thoughts feel more personal and focused.</p>
+                <p class="or">OR</p>
+                <p class="option2">Let the AI summarize and organize your notes into wireframes — it's faster and more efficient.</p>
+            </div>
+        </div>
 
+        <!-- Calendar Prompt -->
+        <div class="prompt-content" id="calendar-contents">
+            <p class="short-intro" id="calendar-prompt-content"></p>
+            <div class="options hidden">
+                <p class="option1">Register for a small group workshop led by human designers. Share ideas, get critique, grow together.</p>
+                <p class="or">OR</p>
+                <p class="option2">Use AI to generate optimized goals based on salary trends and hiring stats.</p>
+            </div>
+        </div>
 
+        <!-- Postit Prompt -->
+        <div class="prompt-content" id="postit-contents">
+            <p class="short-intro" id="postit-prompt-content"></p>
+            <div class="options hidden">
+                <p class="option1">Write your goals from scratch, guided by your values and curiosities — even if they're vague or evolving.</p>
+                <p class="or">OR</p>
+                <p class="option2">Use AI to generate optimized goals based on salary trends and hiring stats.</p>
+            </div>
+        </div>
+
+        <!-- Phone Prompt -->
+        <div class="prompt-content" id="phone-contents">
+            <p class="short-intro" id="phone-prompt-content"></p>
+            <div class="options hidden">
+                <p class="option1">Ask questions, clarify values, and shape the brief into something more meaningful.</p>
+                <p class="or">OR</p>
+                <p class="option2">Let AI auto-respond and auto-generate the first round of designs — skip the messy human part.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <p>Designed by Ruihong Zhou</p>
+        <p>Built with <a href="https://github.com/mattboldt/typed.js/" target="_blank">Typed.js</a></p>
+    </footer>
 </body>
 </html>
