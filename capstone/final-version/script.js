@@ -20,7 +20,7 @@ startBtn.addEventListener('click', function(){
         mainScreen.style.display = 'block';
         document.querySelector('h1').style.display = 'block';
         directionTip.style.display = 'block';
-    }, 1000); //8 seconds
+    }, 8000); //8 seconds
     //1 second for now for me to get to the main screen faster
 });
 
