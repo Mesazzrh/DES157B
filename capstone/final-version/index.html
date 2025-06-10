@@ -27,6 +27,7 @@
     <!-- Intro Screen -->
     <section id="intro-screen" class="hidden">
         <h2>This is an interactive narrative game, specifically a branching choice-based game. Core of the game is storytelling, where users experience a narrative that changes based on their choices.</h2>
+        <p class="wait-caption">Please wait 8 seconds while we prepare your experience...</p>
     </section>
 
     <!-- Main Screen -->
@@ -42,6 +43,7 @@
     <!-- Content Bubble and Futures -->
     <div class="content-bubble-and-contents">
         <div class="content-bubble hidden">
+            <div class="prompt-close-btn">&times;</div>
             <div class="futures">
                 <!-- Notebook Futures -->
                 <div class="utopia hidden" id="notebook-utopia">
@@ -88,15 +90,17 @@
     
     <!-- Prompt Box -->
     <div id="prompt-box" class="hidden">
-        <div id="prompt-close-btn">&times;</div>
+        <div class="prompt-close-btn">&times;</div>
         
         <!-- Notebook Prompt -->
         <div class="prompt-content" id="notebook-contents">
             <p class="short-intro" id="notebook-prompt-content"></p>
             <div class="options hidden">
-                <p class="option1">Sketch it all out by hand — it's slower, but your thoughts feel more personal and focused.</p>
+                <p class="option1">Sketch it all out by hand</p>
+                <!-- — it's slower, but your thoughts feel more personal and focused -->
                 <p class="or">OR</p>
-                <p class="option2">Let the AI summarize and organize your notes into wireframes — it's faster and more efficient.</p>
+                <p class="option2">Let the AI summarize and organize your notes into wireframes</p>
+                <!-- — it's faster and more efficient. -->
             </div>
         </div>
 
@@ -104,9 +108,9 @@
         <div class="prompt-content" id="calendar-contents">
             <p class="short-intro" id="calendar-prompt-content"></p>
             <div class="options hidden">
-                <p class="option1">Register for a small group workshop led by human designers. Share ideas, get critique, grow together.</p>
+                <p class="option1">Plan yourself and write down by hand</p>
                 <p class="or">OR</p>
-                <p class="option2">Use AI to generate optimized goals based on salary trends and hiring stats.</p>
+                <p class="option2">Let AI schedule and check for availabilities</p>
             </div>
         </div>
 
@@ -114,9 +118,11 @@
         <div class="prompt-content" id="postit-contents">
             <p class="short-intro" id="postit-prompt-content"></p>
             <div class="options hidden">
-                <p class="option1">Write your goals from scratch, guided by your values and curiosities — even if they're vague or evolving.</p>
+                <p class="option1">Write your goals from scratch</p>
+                <!-- , guided by your values and curiosities
+                — even if they're vague or evolving -->
                 <p class="or">OR</p>
-                <p class="option2">Use AI to generate optimized goals based on salary trends and hiring stats.</p>
+                <p class="option2">Use AI to generate optimized goals based on salary trends and hiring stats</p>
             </div>
         </div>
 
@@ -124,9 +130,9 @@
         <div class="prompt-content" id="phone-contents">
             <p class="short-intro" id="phone-prompt-content"></p>
             <div class="options hidden">
-                <p class="option1">Ask questions, clarify values, and shape the brief into something more meaningful.</p>
+                <p class="option1">Ask questions, clarify values, and shape the brief into something more meaningful</p>
                 <p class="or">OR</p>
-                <p class="option2">Let AI auto-respond and auto-generate the first round of designs — skip the messy human part.</p>
+                <p class="option2">Let AI auto-respond and auto-generate the first round of designs</p>
             </div>
         </div>
     </div>

@@ -49,12 +49,6 @@ function showPromptContent(contentId, typedOptions) {
         }
     }
 
-    for (const contentBubble of document.querySelectorAll('.content-bubble')) {
-        if (contentBubble) {
-            contentBubble.style.display = 'none';
-        }
-    }
-
     // Show new content
     const contentDiv = document.querySelector(contentId);
     if (contentDiv) {
@@ -111,51 +105,32 @@ function showFutureContent(contentId) {
     const utopiaFutureImg = bubbleAndContent.querySelector(`#${objectName}-utopia img`);
     const dystopiaFutureImg = bubbleAndContent.querySelector(`#${objectName}-dystopia img`);
 
-    // Hide all futures first
-    if (bubbleAndContent) {
-        bubbleAndContent.style.display = 'none';
-    }
-    if (utopiaFuture) {
-        utopiaFuture.style.display = 'none';
-    }
-    if (dystopiaFuture) {
-        dystopiaFuture.style.display = 'none';
-    }
-
     // Utopia option handler
     option1.addEventListener('click', function() {
-        if (utopiaFuture) {
-            utopiaFuture.style.display = 'none';
-        }
-        if (dystopiaFuture) {
-            dystopiaFuture.style.display = 'none';
+        // Disable option2
+        option2.className = 'option2 disabled';
+        
+        for (const future of document.querySelectorAll('.utopia, .dystopia')) {
+            future.style.display = 'none';
         }
         bubbleAndContent.style.display = 'block';
         contentBubble.style.display = 'block';
-        if (utopiaFuture) {
-            utopiaFuture.style.display = 'block';
-        }
-        if (utopiaFutureImg) {
-            utopiaFutureImg.style.display = 'block';
-        }
+        utopiaFuture.style.display = 'block';
+        utopiaFutureImg.style.display = 'block';
     });
 
     // Dystopia option handler
     option2.addEventListener('click', function() {
-        if (utopiaFuture) {
-            utopiaFuture.style.display = 'none';
-        }
-        if (dystopiaFuture) {
-            dystopiaFuture.style.display = 'none';
+        // Disable option1
+        option1.className = 'option1 disabled';
+        
+        for (const future of document.querySelectorAll('.utopia, .dystopia')) {
+            future.style.display = 'none';
         }
         bubbleAndContent.style.display = 'block';
         contentBubble.style.display = 'block';
-        if (dystopiaFuture) {
-            dystopiaFuture.style.display = 'block';
-        }
-        if (dystopiaFutureImg) {
-            dystopiaFutureImg.style.display = 'block';
-        }
+        dystopiaFuture.style.display = 'block'
+        dystopiaFutureImg.style.display = 'block';
     });
 }
 
@@ -174,6 +149,15 @@ for (const item of interactiveItems) {
         
         // Set clicked item to active state
         this.className = 'clickable-icon icon active';
+
+        // Reset any disabled options
+        for (const option of document.querySelectorAll('.option1, .option2')) {
+            if (option.className.includes('option1')) {
+                option.className = 'option1';
+            } else {
+                option.className = 'option2';
+            }
+        }
 
         if (this.id === 'notebook') {
             showPromptContent('#notebook-contents', {
@@ -229,45 +213,15 @@ for (const item of interactiveItems) {
 }
 
 // ========== Close Functionality ==========
-function closePromptBox(){
-    document.addEventListener('keydown', function(e){
-        if (e.key === 'Escape'){
-            promptBox.style.display = 'none';
-            if (typedInstance) {
-                typedInstance.destroy();
-                typedInstance = null;
-            }
-            if (optionsTimeoutId) {
-                clearTimeout(optionsTimeoutId);
-                optionsTimeoutId = null;
-            }
-            
-            // Reset all items to default state
-            for (const item of interactiveItems) {
-                item.className = 'clickable-icon icon';
-            }
-            
-            // Hide all content inside content-bubble-and-contents
-            const bubbleAndContent = document.querySelector('.content-bubble-and-contents');
-            if (bubbleAndContent) {
-                bubbleAndContent.style.display = 'none';
-            }
-            
-            directionTip.style.display = 'block';
-            directionTip.style.opacity = 1;
-            directionTip.style.animation = '';
-        }        
-    });
-}
-
-closePromptBox();
-
-// Close button functionality
-document.querySelector('#prompt-close-btn').addEventListener('click', function() {
+function closeAllContent() {
     promptBox.style.display = 'none';
     if (typedInstance) {
         typedInstance.destroy();
         typedInstance = null;
+    }
+    if (optionsTimeoutId) {
+        clearTimeout(optionsTimeoutId);
+        optionsTimeoutId = null;
     }
     
     // Reset all items to default state
@@ -275,13 +229,25 @@ document.querySelector('#prompt-close-btn').addEventListener('click', function()
         item.className = 'clickable-icon icon';
     }
     
-    directionTip.style.display = 'block';
-    directionTip.style.opacity = 1;
-    directionTip.style.animation = '';
-
     // Hide all content inside content-bubble-and-contents
     const bubbleAndContent = document.querySelector('.content-bubble-and-contents');
     if (bubbleAndContent) {
         bubbleAndContent.style.display = 'none';
     }
+    
+    directionTip.style.display = 'block';
+    directionTip.style.opacity = 1;
+    directionTip.style.animation = '';
+}
+
+// ESC key functionality
+document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape'){
+        closeAllContent();
+    }        
 });
+
+// Close button functionality
+for (const closeBtn of document.querySelectorAll('.prompt-close-btn')) { 
+    closeBtn.addEventListener('click', closeAllContent);
+}

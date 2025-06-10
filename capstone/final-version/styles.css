@@ -103,6 +103,19 @@ h1 {
     text-align: center;
 }
 
+.wait-caption {
+    position: absolute;
+    top: 45vh;
+    left: 50%;
+    top: 60%;
+    transform: translateX(-50%);
+    color: rgb(221, 122, 77);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.2em;
+    text-align: center;
+    animation: fadeInOut 2s infinite;
+}
+
 /* Main Screen */
 #main-screen {
     position: absolute;
@@ -239,7 +252,7 @@ h1 {
 }
 
 /* Close Button */
-#prompt-close-btn {
+.prompt-close-btn {
     position: absolute;
     top: 10px;
     right: 15px;
@@ -258,7 +271,7 @@ h1 {
     border-radius: 50%;
 }
 
-#prompt-close-btn:hover {
+.prompt-close-btn:hover {
     background-color: rgba(0, 0, 0, 0.1);
     transform: rotate(90deg);
 }
@@ -282,7 +295,7 @@ h1 {
     font-weight: 600;
     position: absolute;
     left: 50%;
-    width: 90%;
+    /* width: 90%; */
     padding: 0 1em;
     border-radius: 10px;
     transform: translateX(-50%);
@@ -308,6 +321,19 @@ h1 {
 
 .option1:active, .option2:active {
     transform: translateX(-50%) scale(0.98);
+}
+
+.option1.disabled, .option2.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.option1.disabled:hover, .option2.disabled:hover {
+    color: black;
+    filter: none;
+    transform: translateX(-50%);
+    background: none;
 }
 
 .or {
@@ -375,6 +401,13 @@ h1 {
     margin-top: 2%;
 }
 
+#notebook-utopia img {
+    width: 40%;
+    height: auto;
+    margin: auto;
+    margin-top: 2%;
+}
+
 #notebook-dystopia img {
     width: 60%;
     height: auto;
@@ -383,11 +416,13 @@ h1 {
 }
 
 #calendar-utopia img {
-    width: 60%;
+    width: 45%;
     height: auto;
     margin: auto;
     margin-top: -4%;
 }
+
+
 
 #postit-utopia img {
     width: 40%;
@@ -402,6 +437,21 @@ h1 {
     margin: auto;
     margin-top: 2%;
 }
+
+#phone-utopia img {
+    width: 30%;
+    height: auto;
+    margin: auto;
+    margin-top: 2%;
+}
+
+#phone-dystopia img {
+    width: 30%;
+    height: auto;
+    margin: auto;
+    margin-top: 2%;
+}
+
 
 /* ========== Animations ========== */
 @keyframes fadeInOut {
@@ -456,4 +506,40 @@ footer a {
 footer a:hover {
     color: rgb(255, 156, 63);
     text-decoration: underline;
+}
+
+#choice-history {
+    position: fixed;
+    top: 60px;
+    right: 30px;
+    width: 220px;
+    max-height: 60vh;
+    background: rgba(0,0,0,0.7);
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    padding: 16px 18px 12px 18px;
+    z-index: 20;
+    overflow-y: auto;
+    font-family: 'Courier New', Courier, monospace;
+}
+#choice-history h3 {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    color: rgb(221, 122, 77);
+    text-align: center;
+    letter-spacing: 1px;
+}
+#choice-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.98em;
+}
+#choice-list li {
+    margin-bottom: 7px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 5px;
+    padding: 5px 8px;
+    word-break: break-word;
 }
