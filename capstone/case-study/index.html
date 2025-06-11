@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Capstone Case Study exploring the relationship between human designers and AI">
+    <title>Capstone Case Study: Designing Futures</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 2rem;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+
+        h1, h2 {
+            color: #0a3d62;
+        }
+
+        section {
+            margin-bottom: 2rem;
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .design-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 0.5rem 0;
+            display: block;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .design-image:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        #visual-design-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        @media (max-width: 768px) {
+            #visual-design-container {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Capstone Case Study: Designing Futures</h1>
+        </header>
+
+        <main>
+            <section>
+                <h2>Overview</h2>
+                <p><strong>Project Title:</strong> Designing Futures: Human Designers vs. AI</p>
+                <p>This project explores speculative utopian and dystopian futures focused on the evolving relationship between human designers and artificial intelligence. Users are prompted to make choices that shape different narrative outcomes.</p>
+                <p><strong>Target Audience:</strong> Designers, tech enthusiasts, educators, and students interested in the future of creativity and AI.</p>
+                <p><strong>Goals:</strong> To encourage reflection on future paths for design practice and the ethical implications of AI integration.</p>
+                <p><strong>Brainstorm Image:</strong></p>
+                <img src="images/mind-map.png" alt="Mind Map" class="design-image">
+            </section>
+
+            <section>
+                <h2>UX Research</h2>
+                <p>Comparative research included interactive narratives (like <em>Bandersnatch</em>) and AI tools (e.g., ChatGPT, DALL·E). These informed the project's structure and interaction model. The dual-choice interaction model evolved from studying effective user engagement techniques and speculative design methodology.</p>
+            </section>
+
+            <section>
+                <h2>Visual Design</h2>
+                <p>The design uses visual contrast (change in background color and text color when hovering over different choices) to distinguish between utopian and dystopian outcomes. Fonts and layouts evoke a sketchy feel while maintaining readability. Iterations were made after user testing to improve clarity and flow, including enhancing choice buttons and adding transitions.</p>
+                <div id="visual-design-container">
+                    <img src="images/v1-1.png" alt="Visual Design 1" class="design-image">
+                    <img src="images/v1-2.png" alt="Visual Design 2" class="design-image">
+                    <img src="images/v2-2.png" alt="Visual Design 4" class="design-image">
+                    <img src="images/v2-3.png" alt="Visual Design 5" class="design-image">
+                    <img src="images/v2-1.png" alt="Visual Design 3" class="design-image">
+                    <img src="images/v3-1.png" alt="Visual Design 6" class="design-image">
+                </div>
+            </section>
+
+            <section>
+                <h2>User Interface</h2>
+                <p>The main interface is a desk containing clickable items like a notebook, post-its, calendar, and phone. Each item offers a short narrative with two user-selectable options, leading to a different outcome.</p>
+                <p>Design decisions were guided by usability principles and aimed to reduce cognitive load by limiting decisions to two clear options at a time. Feedback animations and consistent visual language were used to reinforce user actions.</p>
+                <div id="visual-design-container">
+                    <img src="images/v2-1.png" alt="desk" class="design-image">
+                    <img src="images/v3-1.png" alt="future outcome" class="design-image">
+                </div>
+            </section>
+
+            <section>
+                <h2>Revisions</h2>
+                <p>Usability testing showed that problems happened because choices from earlier items were still affecting things. These were addressed by managing interaction states more carefully in JavaScript. Feedback also led to improving the pacing and clarity of outcomes.</p>
+                <p>Future work would include expanding the depth of each narrative branch and refining animation and visual transitions.</p>
+            </section>
+
+            <section>
+                <h2>Summary</h2>
+                <p>This project taught me how to blend storytelling, speculative design, and interactivity. I'm most proud of how the desk metaphor lets users see and explore what might happen in the future. Debugging the interaction logic was the most challenging part but was highly rewarding after I got it working.</p>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
